@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package transversal.accesoAdatos;
+package universidadGP13.accesoAdatos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class Conexion {
     private static final String URL="jdbc:mariadb://localhost/";
-    private static final String DB="universidadulp";
+    private static final String DB="universidad";
     private static final String USUARIO="root";
     private static final String PASSWORD="";
     private static Connection connection;
