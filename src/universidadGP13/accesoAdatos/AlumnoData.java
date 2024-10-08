@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.mariadb.jdbc.Statement;
 import universidadGP13.entidades.Alumno;
 
 /**

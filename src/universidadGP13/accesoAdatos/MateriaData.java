@@ -48,14 +48,14 @@ public class MateriaData {
     
     public Materia buscarMateria(int idMateria){
         Materia materia = null;
-        String sql = "SELECT id_materia, nombre , anio, estado FROM materia WHERE id_materia = ? AND estado = 1";
+        String sql = "SELECT nombre , anio, estado FROM materia WHERE id_materia = ? AND estado = 1";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1,idMateria);
             ResultSet rs=ps.executeQuery();
             if (rs.next()) {
                 materia = new Materia();
-                materia.setIdMateria(rs.getInt("id_materia"));
+                materia.setIdMateria(idMateria);
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnioMateria(rs.getInt("anio"));
                 materia.setEstado(rs.getBoolean("estado"));
@@ -77,6 +77,7 @@ public class MateriaData {
             ps.setString(1, materia.getNombre());
             ps.setInt(2,materia.getAnioMateria());
             ps.setBoolean(3, materia.isEstado());
+            ps.setInt(4, materia.getIdMateria());
             int update = ps.executeUpdate();
             if(update==1){
                 JOptionPane.showMessageDialog(null, "Materia modificada");
