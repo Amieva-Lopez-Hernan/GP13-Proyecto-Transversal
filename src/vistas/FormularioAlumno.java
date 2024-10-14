@@ -232,9 +232,9 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
             limpiarCampos();
         }
         
-         }catch(NumberFormatException ex){
+        }catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(this, "Debe ingresar un DNI valido");
-                }
+        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
@@ -254,9 +254,9 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
       private void limpiarCampos() {
-          jtDni.setText(" ");
-          jtApellido.setText(" ");
-          jtNombre.setText(" ");
+          jtDni.setText("");
+          jtApellido.setText("");
+          jtNombre.setText("");
           jrbEstado.setSelected(true);
           jdcNacimiento.setDate(new Date());
           alumnoActual=null;
