@@ -12,16 +12,15 @@ import universidadGP13.entidades.Materia;
  *
  * @author Hernan
  */
-public class vistasMateria extends javax.swing.JInternalFrame {
+public class FormularioMateria extends javax.swing.JInternalFrame {
 
-    private MateriaData mat;
+    private MateriaData md = new MateriaData();
 
     /**
      * Creates new form vistasMateria
      */
-    public vistasMateria(MateriaData m) {
+    public FormularioMateria() {
         initComponents();
-        this.mat = menu.materias;
     }
 
     /**
@@ -197,7 +196,7 @@ public class vistasMateria extends javax.swing.JInternalFrame {
         if (flag) {
             activarCampos();
             jbEliminar.setEnabled(true);
-            Materia materia = mat.buscarMateria(Integer.parseInt(jtfCodigoMat.getText()));
+            Materia materia = md.buscarMateria(Integer.parseInt(jtfCodigoMat.getText()));
             jtfNombreMat.setText(materia.getNombre());
             jtfAnioMat.setText(materia.getAnioMateria() + "");
             jrbEstadoMat.setSelected(materia.isEstado());
@@ -217,19 +216,19 @@ public class vistasMateria extends javax.swing.JInternalFrame {
         boolean flag = validarCampos();
         if (flag && jtfCodigoMat.getText().isEmpty()) {
             Materia materia = new Materia(jtfNombreMat.getText(), Integer.parseInt(jtfAnioMat.getText()), jrbEstadoMat.isSelected());
-            mat.guardarMateria(materia);
+            md.guardarMateria(materia);
             limpiarCampos();
             desactivarCampos();
         } else {
             Materia materia = new Materia(Integer.parseInt(jtfCodigoMat.getText()), jtfNombreMat.getText(), Integer.parseInt(jtfAnioMat.getText()), jrbEstadoMat.isSelected());
-            mat.modificarMateria(materia);
+            md.modificarMateria(materia);
             limpiarCampos();
             desactivarCampos();
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
-        mat.eliminarMateria(Integer.parseInt(jtfCodigoMat.getText()));
+        md.eliminarMateria(Integer.parseInt(jtfCodigoMat.getText()));
         limpiarCampos();
         desactivarCampos();
     }//GEN-LAST:event_jbEliminarActionPerformed

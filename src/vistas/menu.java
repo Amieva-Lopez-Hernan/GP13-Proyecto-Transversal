@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import universidadGP13.accesoAdatos.AlumnoData;
 import universidadGP13.accesoAdatos.MateriaData;
 
 /**
@@ -12,10 +13,7 @@ import universidadGP13.accesoAdatos.MateriaData;
  * @author valer
  */
 public class menu extends javax.swing.JFrame {
-    public static MateriaData materias = new MateriaData();
-    /**
-     * Creates new form menu
-     */
+
     public menu() {
         initComponents();
     }
@@ -32,7 +30,7 @@ public class menu extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuAlumno = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmiFormularioAlumno = new javax.swing.JMenuItem();
         jMenuMateria = new javax.swing.JMenu();
         jmiFormularioMateria = new javax.swing.JMenuItem();
         jMenuAdmin = new javax.swing.JMenu();
@@ -48,22 +46,22 @@ public class menu extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 576, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 525, Short.MAX_VALUE)
+            .addGap(0, 676, Short.MAX_VALUE)
         );
 
         jMenuAlumno.setText("Alumno");
 
-        jMenuItem1.setText("Formulario de Alumno");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmiFormularioAlumno.setText("Formulario de Alumno");
+        jmiFormularioAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmiFormularioAlumnoActionPerformed(evt);
             }
         });
-        jMenuAlumno.add(jMenuItem1);
+        jMenuAlumno.add(jmiFormularioAlumno);
 
         jMenuBar1.add(jMenuAlumno);
 
@@ -115,14 +113,19 @@ public class menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jmiFormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFormularioAlumnoActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        FormularioAlumno vistaA = new FormularioAlumno();
+        vistaA.setVisible(true);
+        jDesktopPane1.add(vistaA);
+        jDesktopPane1.moveToFront(vistaA);
+    }//GEN-LAST:event_jmiFormularioAlumnoActionPerformed
 
     private void jmiFormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiFormularioMateriaActionPerformed
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        vistasMateria vistaM = new vistasMateria(materias);
+        FormularioMateria vistaM = new FormularioMateria();
         vistaM.setVisible(true);
         jDesktopPane1.add(vistaM);
         jDesktopPane1.moveToFront(vistaM);
@@ -169,12 +172,12 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuAlumno;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuConsulta;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu jMenuMateria;
     private javax.swing.JMenu jMenuSalir;
+    private javax.swing.JMenuItem jmiFormularioAlumno;
     private javax.swing.JMenuItem jmiFormularioMateria;
     // End of variables declaration//GEN-END:variables
 }

@@ -204,8 +204,6 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         // TODO add your handling code here:
         limpiarCampos();
-        alumnoActual=null;
-        
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -223,13 +221,15 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         Boolean estado= jrbEstado.isSelected();
         if(alumnoActual == null){
             alumnoActual= new Alumno(dni, apellido, nombre, fechaNac,estado);
+            aluData.guardarAlumno(alumnoActual);
+            limpiarCampos();
         }else {
             alumnoActual.setDni(dni);
             alumnoActual.setApellido(apellido);
-            alumnoActual.setNombre(nombre);
-         
+            alumnoActual.setNombre(nombre);         
             alumnoActual.setFechaNac(fechaNac);
-            aluData.guardarAlumno(alumnoActual);
+            aluData.modificarAlumno(alumnoActual);
+            limpiarCampos();
         }
         
          }catch(NumberFormatException ex){
@@ -259,6 +259,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
           jtNombre.setText(" ");
           jrbEstado.setSelected(true);
           jdcNacimiento.setDate(new Date());
+          alumnoActual=null;
       }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
