@@ -103,9 +103,9 @@ public class MateriaData {
         }
     }
 
-    public List<Materia> listarMaterias (){
-        ArrayList<Materia> materias=new ArrayList();
-        String sql = "SELECT id_materia,nombre, anio , estado FROM materia WHERE estado=1";
+    public List<Materia> listarMaterias(){
+        ArrayList<Materia> materias = new ArrayList();
+        String sql = "SELECT id_materia, nombre, anio , estado FROM materia WHERE estado = 1";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs=ps.executeQuery();
